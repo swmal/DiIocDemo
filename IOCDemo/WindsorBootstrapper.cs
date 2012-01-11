@@ -9,7 +9,7 @@ using Microsoft.Practices.ServiceLocation;
 
 namespace IOCDemo
 {
-    public class WindsorBootstrapper
+    public static class WindsorBootstrapper
     {
         public static void Bootstrap()
         {

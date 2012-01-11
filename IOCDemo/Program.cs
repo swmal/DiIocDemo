@@ -7,7 +7,7 @@ namespace IOCDemo
 {
     class Program
     {
-        private enum IocContainer{ CastleWindsor, StructureMap }
+        private enum IocContainer{ CastleWindsor, StructureMap, Autofac, Unity }
 
         private static void Bootstrap(IocContainer iocContainer)
         {
@@ -19,16 +19,23 @@ namespace IOCDemo
                 case IocContainer.StructureMap:
                     StructureMapBootstrapper.Bootstrap();
                     break;
+                case IocContainer.Autofac:
+                    AutofacBootstrapper.Bootstrap();
+                    break;
+                case IocContainer.Unity:
+                    UnityBootstrapper.Bootstrap();
+                    break;
                 default:
                     WindsorBootstrapper.Bootstrap();
                     break;
             }
+            Console.WriteLine("Bootstrapped using " + iocContainer);
         }
 
 
         static void Main(string[] args)
         {
-            Bootstrap(IocContainer.StructureMap);
+            Bootstrap(IocContainer.Unity);
 
             // resolve and call IOrderService
             var orderService = ServiceLocator.Current.GetInstance<IOrderService>();

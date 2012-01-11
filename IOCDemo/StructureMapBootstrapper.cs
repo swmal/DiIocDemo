@@ -9,7 +9,7 @@ using StructureMap.ServiceLocatorAdapter;
 
 namespace IOCDemo
 {
-    public class StructureMapBootstrapper
+    public static class StructureMapBootstrapper
     {
         public static void Bootstrap()
         {
